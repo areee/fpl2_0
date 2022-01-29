@@ -12,6 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _isRunning = false;
+
+  void _changeRunning() {
+    setState(() {
+      _isRunning = !_isRunning;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +35,22 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Running: $_isRunning',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.play_arrow),
-        onPressed: () {
-          print('Start clicked');
-        },
-        tooltip: 'Start',
+        child:
+            _isRunning ? const Icon(Icons.pause) : const Icon(Icons.play_arrow),
+        onPressed: _changeRunning,
+        tooltip: _isRunning ? 'Pause' : 'Start',
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomAppBar(),
