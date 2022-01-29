@@ -44,12 +44,14 @@ class HomePage extends StatelessWidget {
         tooltip: 'Start',
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: _DemoBottomAppBar(),
+      bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }
 
-class _DemoBottomAppBar extends StatelessWidget {
+class CustomBottomAppBar extends StatelessWidget {
+  const CustomBottomAppBar({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
