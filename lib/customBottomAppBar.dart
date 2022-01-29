@@ -18,7 +18,9 @@ class CustomBottomAppBar extends StatelessWidget {
             IconButton(
               tooltip: 'Randomize',
               icon: const Icon(Icons.shuffle),
-              onPressed: () {},
+              onPressed: () {
+                print('Randomize clicked');
+              },
             ),
             const Spacer(
               flex: 1,
@@ -26,7 +28,9 @@ class CustomBottomAppBar extends StatelessWidget {
             IconButton(
               tooltip: 'Stop',
               icon: const Icon(Icons.stop),
-              onPressed: () {},
+              onPressed: () {
+                print('Stop clicked');
+              },
             ),
             const Spacer(
               flex: 3,
