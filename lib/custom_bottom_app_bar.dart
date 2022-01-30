@@ -7,7 +7,7 @@ class CustomBottomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
-      color: Colors.blue,
+      color: Theme.of(context).colorScheme.primary,
       child: IconTheme(
         data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
         child: Row(
