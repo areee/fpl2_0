@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:fpl2_0/models/runner.dart';
+import 'package:provider/provider.dart';
 
 import 'home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Runner(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  final String title = 'Flutter Participants Lottery v2.0';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: title,
+      title: 'Flutter Participants Lottery v2.0',
       theme: ThemeData(
         // TODO: Add theme to the app (this is just a temporary one for night mode)
-        // brightness: Brightness.dark,
+        brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: title),
+      home: const HomePage(),
     );
   }
 }
