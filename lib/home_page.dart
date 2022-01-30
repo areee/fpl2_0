@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'customBottomAppBar.dart';
+import 'custom_bottom_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -13,10 +13,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isRunning = false;
+  bool _isStopped = true;
 
   void _changeRunning() {
     setState(() {
       _isRunning = !_isRunning;
+      _isStopped = false;
+    });
+  }
+
+  void _setStopped() {
+    setState(() {
+      _isRunning = false;
+      _isStopped = true;
     });
   }
 
@@ -41,6 +50,10 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               'Running: $_isRunning',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            Text(
+              'Stopped: $_isStopped',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
