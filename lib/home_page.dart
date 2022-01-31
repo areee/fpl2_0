@@ -39,17 +39,22 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.play_arrow),
-        tooltip: 'Start',
+        child: Consumer<Runner>(
+          builder: (context, runner, child) {
+            return Icon(
+              runner.status == Status.running ? Icons.pause : Icons.play_arrow,
+            );
+          },
+        ),
         onPressed: () {
-          print('Start button clicked');
           var runner = context.read<Runner>();
-          runner.setRunning();
+          runner.status == Status.running
+              ? runner.setPaused()
+              : runner.setRunning();
         },
-        // child:
-        //     _isRunning ? const Icon(Icons.pause) : const Icon(Icons.play_arrow),
-        // onPressed: _changeRunning,
-        // tooltip: _isRunning ? 'Pause' : 'Start',
+        tooltip: context.watch<Runner>().status == Status.running
+            ? 'Pause'
+            : 'Start',
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomAppBar(),
