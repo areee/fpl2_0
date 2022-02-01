@@ -1,0 +1,1 @@
+enum AppBarValues { settings, about }

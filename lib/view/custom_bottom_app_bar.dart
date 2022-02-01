@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'models/runner.dart';
+import '../models/runner.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);
@@ -32,7 +32,6 @@ class CustomBottomAppBar extends StatelessWidget {
               tooltip: 'Stop',
               icon: const Icon(Icons.stop),
               onPressed: () {
-                print('Stop clicked');
                 var runner = context.read<Runner>();
                 runner.setStopped();
               },

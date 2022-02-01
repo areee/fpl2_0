@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fpl2_0/models/runner.dart';
 import 'package:provider/provider.dart';
 
-import 'home_page.dart';
+import 'view/home_page.dart';
+import 'view/settings_page.dart';
 
 void main() {
   runApp(
@@ -21,12 +22,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Participants Lottery v2.0',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/settings': (context) => const SettingsPage(),
+      },
       theme: ThemeData(
         // TODO: Add theme to the app (this is just a temporary one for night mode)
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
     );
   }
 }

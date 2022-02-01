@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'custom_bottom_app_bar.dart';
-import 'models/runner.dart';
+import '../models/runner.dart';
+import '../static.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,12 +14,36 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Participants Lottery v2.0'),
         actions: [
-          IconButton(
+          PopupMenuButton<AppBarValues>(
+            onSelected: (AppBarValues value) {
+              switch (value) {
+                case AppBarValues.about:
+                  Navigator.pushNamed(context, '/about');
+                  break;
+                case AppBarValues.settings:
+                  Navigator.pushNamed(context, '/settings');
+                  break;
+              }
+            },
             tooltip: 'More options',
             icon: const Icon(Icons.more_vert),
-            onPressed: () {
-              print('More options clicked');
-            }, // TODO: Add menu (Settings, About, etc)
+            itemBuilder: (BuildContext context) =>
+                <PopupMenuEntry<AppBarValues>>[
+              const PopupMenuItem<AppBarValues>(
+                value: AppBarValues.settings,
+                child: ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                ),
+              ),
+              const PopupMenuItem<AppBarValues>(
+                value: AppBarValues.about,
+                child: ListTile(
+                  leading: Icon(Icons.info),
+                  title: Text('About'),
+                ),
+              ),
+            ],
           ),
         ],
       ),
