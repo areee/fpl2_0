@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum Status {
-  running,
-  paused,
-  stopped,
-}
+import '../static.dart';
 
 class Runner with ChangeNotifier {
   Status status = Status.stopped;

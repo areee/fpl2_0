@@ -27,9 +27,13 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/settings': (context) => const SettingsPage(),
       },
-      theme: ThemeData(
-        // TODO: Add theme to the app (this is just a temporary one for night mode)
+      // TODO: Add theme to the app (these are just temporary ones for night mode)
+      darkTheme: ThemeData(
         brightness: Brightness.dark,
+        primarySwatch: Colors.blue,
+      ),
+      theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
     );

@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                     applicationLegalese:
                         'Copyright © Arttu Ylhävuori, {{ year }}',
                     applicationDescription: const Text(
-                      'Participants lottery and a timer for devs\' daily scrum meetings.',
+                      'A participants lottery and a timer for devs\' daily scrum meetings.',
                       textAlign: TextAlign.justify,
                     ),
                     children: const <Widget>[
