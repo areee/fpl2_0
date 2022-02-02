@@ -1,9 +1,9 @@
 name: fpl2_0
-description: Flutter Participants Lottery v2.0
+description: Participants lottery and a timer for devs\' daily scrum meetings.
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: ">=2.16.0-134.5.beta <3.0.0"

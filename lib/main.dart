@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Participants Lottery v2.0',
+      title: 'Flutter Participants Lottery',
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),

@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Participants Lottery v2.0'),
+        title: const Text('Flutter Participants Lottery'),
         actions: [
           PopupMenuButton<AppBarValues>(
             onSelected: (AppBarValues value) {
@@ -25,13 +25,15 @@ class HomePage extends StatelessWidget {
                   showAboutPage(
                     context: context,
                     values: {
-                      'version': '1.0',
+                      'version': '2.0.0-alpha.1',
                       'year': DateTime.now().year.toString(),
                     },
                     applicationLegalese:
                         'Copyright © Arttu Ylhävuori, {{ year }}',
                     applicationDescription: const Text(
-                        'Participants lottery and a timer for devs\' daily scrum meetings.'),
+                      'Participants lottery and a timer for devs\' daily scrum meetings.',
+                      textAlign: TextAlign.justify,
+                    ),
                     children: const <Widget>[
                       MarkdownPageListTile(
                         filename: 'README.md',
