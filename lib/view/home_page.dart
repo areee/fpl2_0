@@ -1,4 +1,3 @@
-import 'package:about/about.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,42 +21,7 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, '/settings');
                   break;
                 case AppBarValues.about:
-                  showAboutPage(
-                    context: context,
-                    values: {
-                      'version': '2.0.0-alpha.1',
-                      'year': DateTime.now().year.toString(),
-                    },
-                    applicationLegalese:
-                        'Copyright © Arttu Ylhävuori, {{ year }}',
-                    applicationDescription: const Text(
-                      'A participants lottery and a timer for devs\' daily scrum meetings.',
-                      textAlign: TextAlign.justify,
-                    ),
-                    children: const <Widget>[
-                      MarkdownPageListTile(
-                        filename: 'README.md',
-                        title: Text('View Readme'),
-                        icon: Icon(Icons.all_inclusive),
-                      ),
-                      MarkdownPageListTile(
-                        filename: 'LICENSE.md',
-                        title: Text('View License'),
-                        icon: Icon(Icons.description),
-                      ),
-                      LicensesPageListTile(
-                        title: Text('Open source Licenses'),
-                        icon: Icon(Icons.favorite),
-                      ),
-                    ],
-                    // applicationIcon: const SizedBox(
-                    //   width: 100,
-                    //   height: 100,
-                    //   child: Image(
-                    //     image: AssetImage('assets/icon.webp'),
-                    //   ),
-                    // ),
-                  );
+                  Navigator.pushNamed(context, '/about');
               }
             },
             tooltip: 'More options',

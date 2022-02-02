@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fpl2_0/models/runner.dart';
 import 'package:provider/provider.dart';
 
+import 'view/about_page.dart';
 import 'view/home_page.dart';
 import 'view/settings_page.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/settings': (context) => const SettingsPage(),
+        '/about': (context) => const AboutPage(),
       },
       // TODO: Add theme to the app (these are just temporary ones for night mode)
       darkTheme: ThemeData(
