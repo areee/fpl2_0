@@ -1,5 +1,5 @@
 name: fpl2_0
-description: Participants lottery and a timer for devs\' daily scrum meetings.
+description: A participants lottery and a timer for devs\' daily scrum meetings.
 
 publish_to: 'none'
 
@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.2
   about: ^2.1.1
+  circular_countdown_timer: ^0.2.0
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import '../static.dart';
 
 class Runner with ChangeNotifier {
   Status status = Status.stopped;
+  int timerDuration = 90;
 
   void setRunning() {
     status = Status.running;
@@ -17,6 +18,11 @@ class Runner with ChangeNotifier {
 
   void setStopped() {
     status = Status.stopped;
+    notifyListeners();
+  }
+
+  void setTimerDuration(int duration) {
+    timerDuration = duration;
     notifyListeners();
   }
 }
