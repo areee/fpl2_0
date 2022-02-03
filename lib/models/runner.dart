@@ -1,28 +1,32 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 
 import '../static.dart';
 
 class Runner with ChangeNotifier {
-  Status status = Status.stopped;
-  int timerDuration = 90;
+  var status = Status.stopped;
+  var countDownController = CountDownController();
 
   void setRunning() {
+    if (status == Status.stopped) {
+      countDownController.restart(duration: 90);
+    } else {
+      countDownController.resume();
+    }
     status = Status.running;
     notifyListeners();
   }
 
   void setPaused() {
     status = Status.paused;
+    countDownController.pause();
     notifyListeners();
   }
 
   void setStopped() {
     status = Status.stopped;
-    notifyListeners();
-  }
-
-  void setTimerDuration(int duration) {
-    timerDuration = duration;
+    countDownController.restart(duration: 0);
+    countDownController.pause();
     notifyListeners();
   }
 }

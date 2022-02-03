@@ -1,3 +1,4 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -50,14 +51,38 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Current status'),
-            Consumer<Runner>(
-              builder: (context, runner, child) {
-                return Text(
-                  '${runner.status}',
-                  style: Theme.of(context).textTheme.headline4,
-                );
-              },
+            Padding(
+              padding: const EdgeInsets.only(bottom: 2.0),
+              child: CircularCountDownTimer(
+                width: MediaQuery.of(context).size.width / 2,
+                height: MediaQuery.of(context).size.height / 2,
+                duration: 90,
+                initialDuration: 0,
+                fillColor: Colors.greenAccent[700]!,
+                ringColor: Colors.grey[300]!,
+                controller: context.watch<Runner>().countDownController,
+                ringGradient: null,
+                fillGradient: null,
+                backgroundColor: Colors.green[700],
+                backgroundGradient: null,
+                strokeWidth: 20.0,
+                strokeCap: StrokeCap.round,
+                textStyle: const TextStyle(
+                    fontSize: 33.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+                textFormat: CountdownTextFormat.MM_SS,
+                isReverse: true,
+                isReverseAnimation: true,
+                isTimerTextShown: true,
+                autoStart: false,
+                onStart: () {
+                  print('Countdown Started');
+                },
+                onComplete: () {
+                  print('Time\'s up');
+                },
+              ),
             ),
           ],
         ),
