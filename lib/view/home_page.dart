@@ -1,10 +1,10 @@
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'custom_bottom_app_bar.dart';
 import '../models/runner.dart';
 import '../static.dart';
+import 'custom_circular_count_down_timer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,39 +50,10 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Padding(
-              padding: const EdgeInsets.only(bottom: 2.0),
-              child: CircularCountDownTimer(
-                width: MediaQuery.of(context).size.width / 2,
-                height: MediaQuery.of(context).size.height / 2,
-                duration: 90,
-                initialDuration: 0,
-                fillColor: Colors.greenAccent[700]!,
-                ringColor: Colors.grey[300]!,
-                controller: context.watch<Runner>().countDownController,
-                ringGradient: null,
-                fillGradient: null,
-                backgroundColor: Colors.green[700],
-                backgroundGradient: null,
-                strokeWidth: 20.0,
-                strokeCap: StrokeCap.round,
-                textStyle: const TextStyle(
-                    fontSize: 33.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-                textFormat: CountdownTextFormat.MM_SS,
-                isReverse: true,
-                isReverseAnimation: true,
-                isTimerTextShown: true,
-                autoStart: false,
-                onStart: () {
-                  print('Countdown Started');
-                },
-                onComplete: () {
-                  print('Time\'s up');
-                },
-              ),
+              padding: EdgeInsets.only(bottom: 2.0),
+              child: CustomCircularCountDownTimer(),
             ),
           ],
         ),

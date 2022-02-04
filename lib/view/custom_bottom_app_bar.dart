@@ -21,9 +21,7 @@ class CustomBottomAppBar extends StatelessWidget {
             IconButton(
               tooltip: 'Randomize',
               icon: const Icon(Icons.shuffle),
-              onPressed: () {
-                print('Randomize clicked');
-              },
+              onPressed: () {},
             ),
             const Spacer(
               flex: 1,
