@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -9,19 +10,24 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Center(
+      body: Container(
+        padding: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Settings',
-              style: TextStyle(fontSize: 24),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
+            TextField(
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
+              decoration: const InputDecoration(
+                labelText: 'Counter duration',
+                border: OutlineInputBorder(),
+                hintText: 'Enter time in seconds',
+              ),
+              onChanged: (text) {
+                print('Output of the number field: $text');
               },
-              child: const Text('Go back'),
             ),
           ],
         ),
