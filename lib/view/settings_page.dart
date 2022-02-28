@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -26,7 +27,9 @@ class SettingsPage extends StatelessWidget {
                 hintText: 'Enter time in seconds',
               ),
               onChanged: (text) {
-                print('Output of the number field: $text');
+                if (kDebugMode) {
+                  print('Output of the number field: $text');
+                }
               },
             ),
           ],
