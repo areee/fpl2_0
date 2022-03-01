@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Participants Lottery'),
+        centerTitle: true,
         actions: [
           PopupMenuButton<AppBarValues>(
             onSelected: (AppBarValues value) {
@@ -46,6 +47,14 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ],
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              repeat: ImageRepeat.repeatX,
+              image: AssetImage('assets/images/lumihiutale.png'),
+            ),
+          ),
+        ),
       ),
       body: Center(
         child: Column(
