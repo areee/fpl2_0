@@ -10,6 +10,15 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              repeat: ImageRepeat.repeatX,
+              image: AssetImage('assets/images/lumihiutale.png'),
+            ),
+          ),
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(40),
