@@ -19,12 +19,6 @@
 
 import 'package:flutter/material.dart';
 
-typedef ScaffoldBuilder = Widget Function(
-  BuildContext context,
-  Widget title,
-  Widget child,
-);
-
 Widget customScaffoldBuilder(BuildContext context, Widget title, Widget child) {
   return Scaffold(
     appBar: AppBar(
