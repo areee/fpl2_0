@@ -2,6 +2,8 @@ import 'package:about/about.dart' as about;
 
 import 'package:flutter/material.dart';
 
+import '../custom_scaffold_builder.dart' as scaffold;
+
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
 
@@ -13,6 +15,7 @@ class AboutPage extends StatelessWidget {
         'year': DateTime.now().year.toString(),
       },
       title: const Text('About'),
+      scaffoldBuilder: scaffold.customScaffoldBuilder,
       applicationLegalese: 'Copyright © Arttu Ylhävuori, {{ year }}',
       applicationDescription: const Text(
         'A participants lottery and a timer for devs\' daily scrum meetings.',
