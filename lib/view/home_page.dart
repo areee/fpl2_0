@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fpl2_0/components/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 import 'custom_bottom_app_bar.dart';
@@ -11,51 +12,41 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Participants Lottery'),
-        centerTitle: true,
-        actions: [
-          PopupMenuButton<AppBarValues>(
-            onSelected: (AppBarValues value) {
-              switch (value) {
-                case AppBarValues.settings:
-                  Navigator.pushNamed(context, '/settings');
-                  break;
-                case AppBarValues.about:
-                  Navigator.pushNamed(context, '/about');
-              }
-            },
-            tooltip: 'More options',
-            icon: const Icon(Icons.more_vert),
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<AppBarValues>>[
-              const PopupMenuItem<AppBarValues>(
-                value: AppBarValues.settings,
-                child: ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-              ),
-              const PopupMenuItem<AppBarValues>(
-                value: AppBarValues.about,
-                child: ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text('About'),
-                ),
-              ),
-            ],
-          ),
-        ],
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              repeat: ImageRepeat.repeatX,
-              image: AssetImage('assets/images/lumihiutale.png'),
+    List<Widget> actions = [
+      PopupMenuButton<AppBarValues>(
+        onSelected: (AppBarValues value) {
+          switch (value) {
+            case AppBarValues.settings:
+              Navigator.pushNamed(context, '/settings');
+              break;
+            case AppBarValues.about:
+              Navigator.pushNamed(context, '/about');
+          }
+        },
+        tooltip: 'More options',
+        icon: const Icon(Icons.more_vert),
+        itemBuilder: (BuildContext context) => <PopupMenuEntry<AppBarValues>>[
+          const PopupMenuItem<AppBarValues>(
+            value: AppBarValues.settings,
+            child: ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
             ),
           ),
-        ),
+          const PopupMenuItem<AppBarValues>(
+            value: AppBarValues.about,
+            child: ListTile(
+              leading: Icon(Icons.info),
+              title: Text('About'),
+            ),
+          ),
+        ],
       ),
+    ];
+
+    return Scaffold(
+      appBar: customAppBar(
+          context, const Text('Flutter Participants Lottery'), actions),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

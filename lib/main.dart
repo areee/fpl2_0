@@ -35,7 +35,10 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.fredokaOneTextTheme(
-          Theme.of(context).textTheme,
+          Theme.of(context).textTheme.apply(
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
+              ),
         ),
       ),
       theme: ThemeData(
