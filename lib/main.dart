@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fpl2_0/models/runner.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import 'fpl_themes.dart';
 import 'routes.dart';
 
 void main() {
@@ -24,26 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Participants Lottery',
       initialRoute: '/',
       routes: fplRoutes,
-      // TODO: Add theme to the app (these are just temporary ones for night mode)
-      darkTheme: ThemeData(
-        textTheme: GoogleFonts.fredokaOneTextTheme(
-          Theme.of(context).textTheme.apply(
-                bodyColor: Colors.white,
-                displayColor: Colors.white,
-              ),
-        ),
-        colorScheme: ColorScheme.fromSwatch(
-                primarySwatch: Colors.green, brightness: Brightness.dark)
-            .copyWith(secondary: Colors.yellowAccent[700]),
-      ),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-                primarySwatch: Colors.green, brightness: Brightness.light)
-            .copyWith(secondary: Colors.yellowAccent[700]),
-        textTheme: GoogleFonts.fredokaOneTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
+      darkTheme: darkFplTheme(context),
+      theme: lightFplTheme(context),
     );
   }
 }
