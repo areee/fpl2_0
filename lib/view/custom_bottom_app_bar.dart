@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/runner.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);
@@ -7,7 +10,7 @@ class CustomBottomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
-      color: Colors.blue,
+      color: Theme.of(context).colorScheme.primary,
       child: IconTheme(
         data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
         child: Row(
@@ -18,9 +21,7 @@ class CustomBottomAppBar extends StatelessWidget {
             IconButton(
               tooltip: 'Randomize',
               icon: const Icon(Icons.shuffle),
-              onPressed: () {
-                print('Randomize clicked');
-              },
+              onPressed: () {},
             ),
             const Spacer(
               flex: 1,
@@ -29,7 +30,8 @@ class CustomBottomAppBar extends StatelessWidget {
               tooltip: 'Stop',
               icon: const Icon(Icons.stop),
               onPressed: () {
-                print('Stop clicked');
+                var runner = context.read<Runner>();
+                runner.setStopped();
               },
             ),
             const Spacer(
