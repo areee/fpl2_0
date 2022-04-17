@@ -3,7 +3,7 @@ import 'package:about/about.dart' as about;
 import 'package:flutter/material.dart';
 
 import '../components/custom_title_with_style.dart';
-import '../custom_scaffold_builder.dart' as scaffold;
+import '../components/custom_scaffold_builder.dart' as scaffold;
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);

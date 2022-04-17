@@ -3,10 +3,10 @@ import 'package:fpl2_0/components/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../components/custom_title_with_style.dart';
-import 'custom_bottom_app_bar.dart';
+import '../components/custom_bottom_app_bar.dart';
 import '../models/runner.dart';
 import '../static.dart';
-import 'custom_circular_count_down_timer.dart';
+import '../components/custom_circular_count_down_timer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
