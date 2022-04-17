@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fpl2_0/components/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
+import '../components/custom_title_with_style.dart';
 import 'custom_bottom_app_bar.dart';
 import '../models/runner.dart';
 import '../static.dart';
@@ -47,17 +48,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(
           context,
-          Text(
-            'Flutter Participants Lottery',
-            style: TextStyle(
-              background: Paint()
-                ..color = Theme.of(context).colorScheme.primary.withOpacity(0.5)
-                ..strokeWidth = 17
-                ..strokeJoin = StrokeJoin.round
-                ..strokeCap = StrokeCap.round
-                ..style = PaintingStyle.stroke,
-            ),
-          ),
+          customTitleWithStyle(context, 'Flutter Participants Lottery'),
           actions),
       body: Center(
         child: Column(

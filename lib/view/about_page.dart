@@ -2,6 +2,7 @@ import 'package:about/about.dart' as about;
 
 import 'package:flutter/material.dart';
 
+import '../components/custom_title_with_style.dart';
 import '../custom_scaffold_builder.dart' as scaffold;
 
 class AboutPage extends StatelessWidget {
@@ -14,17 +15,7 @@ class AboutPage extends StatelessWidget {
         'version': '2.0.0-alpha.2',
         'year': DateTime.now().year.toString(),
       },
-      title: Text(
-        'About',
-        style: TextStyle(
-          background: Paint()
-            ..color = Theme.of(context).colorScheme.primary.withOpacity(0.5)
-            ..strokeWidth = 17
-            ..strokeJoin = StrokeJoin.round
-            ..strokeCap = StrokeCap.round
-            ..style = PaintingStyle.stroke,
-        ),
-      ),
+      title: customTitleWithStyle(context, 'About'),
       scaffoldBuilder: scaffold.customScaffoldBuilder,
       applicationLegalese: 'Copyright © Arttu Ylhävuori, {{ year }}',
       applicationDescription: const Text(

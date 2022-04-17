@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../components/custom_app_bar.dart';
+import '../components/custom_title_with_style.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -11,19 +12,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(
-          context,
-          Text(
-            'Settings',
-            style: TextStyle(
-              background: Paint()
-                ..color = Theme.of(context).colorScheme.primary.withOpacity(0.5)
-                ..strokeWidth = 17
-                ..strokeJoin = StrokeJoin.round
-                ..strokeCap = StrokeCap.round
-                ..style = PaintingStyle.stroke,
-            ),
-          ),
-          null),
+          context, customTitleWithStyle(context, 'Settings'), null),
       body: Container(
         padding: const EdgeInsets.all(40),
         child: Column(
