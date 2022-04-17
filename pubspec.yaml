@@ -16,6 +16,7 @@ dependencies:
   about: ^2.1.1
   circular_countdown_timer: ^0.2.0
   google_fonts: ^2.3.1
+  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_test:
