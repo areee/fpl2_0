@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Consumer<Runner>(
+        child: Consumer<CountDownRunner>(
           builder: (context, runner, child) {
             return Icon(
               runner.status == Status.running ? Icons.pause : Icons.play_arrow,
@@ -70,12 +70,12 @@ class HomePage extends StatelessWidget {
           },
         ),
         onPressed: () {
-          var runner = context.read<Runner>();
+          var runner = context.read<CountDownRunner>();
           runner.status == Status.running
               ? runner.setPaused()
               : runner.setRunning();
         },
-        tooltip: context.watch<Runner>().status == Status.running
+        tooltip: context.watch<CountDownRunner>().status == Status.running
             ? 'Pause'
             : 'Start',
       ),

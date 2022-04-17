@@ -16,7 +16,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       initialDuration: 0,
       fillColor: Theme.of(context).colorScheme.secondary,
       ringColor: Colors.grey[300]!,
-      controller: context.watch<Runner>().countDownController,
+      controller: context.watch<CountDownRunner>().countDownController,
       ringGradient: null,
       fillGradient: null,
       backgroundColor: Theme.of(context).colorScheme.primary,

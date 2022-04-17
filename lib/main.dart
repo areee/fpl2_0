@@ -8,7 +8,7 @@ import 'routes.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => Runner(),
+      create: (context) => CountDownRunner(),
       child: const MyApp(),
     ),
   );

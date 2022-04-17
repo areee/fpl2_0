@@ -30,7 +30,7 @@ class CustomBottomAppBar extends StatelessWidget {
               tooltip: 'Stop',
               icon: const Icon(Icons.stop),
               onPressed: () {
-                var runner = context.read<Runner>();
+                var runner = context.read<CountDownRunner>();
                 runner.setStopped();
               },
             ),

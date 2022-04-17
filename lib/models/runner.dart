@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../static.dart';
 
-class Runner with ChangeNotifier {
+class CountDownRunner with ChangeNotifier {
   var status = Status.stopped;
   var countDownController = CountDownController();
 
