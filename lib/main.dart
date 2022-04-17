@@ -32,18 +32,20 @@ class MyApp extends StatelessWidget {
       },
       // TODO: Add theme to the app (these are just temporary ones for night mode)
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
         textTheme: GoogleFonts.fredokaOneTextTheme(
           Theme.of(context).textTheme.apply(
                 bodyColor: Colors.white,
                 displayColor: Colors.white,
               ),
         ),
+        colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: Colors.green, brightness: Brightness.dark)
+            .copyWith(secondary: Colors.yellowAccent[700]),
       ),
       theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: Colors.green, brightness: Brightness.light)
+            .copyWith(secondary: Colors.yellowAccent[700]),
         textTheme: GoogleFonts.fredokaOneTextTheme(
           Theme.of(context).textTheme,
         ),
