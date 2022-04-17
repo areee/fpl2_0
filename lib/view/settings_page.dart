@@ -10,7 +10,20 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, const Text('Settings'), null),
+      appBar: customAppBar(
+          context,
+          Text(
+            'Settings',
+            style: TextStyle(
+              background: Paint()
+                ..color = Theme.of(context).colorScheme.primary.withOpacity(0.5)
+                ..strokeWidth = 17
+                ..strokeJoin = StrokeJoin.round
+                ..strokeCap = StrokeCap.round
+                ..style = PaintingStyle.stroke,
+            ),
+          ),
+          null),
       body: Container(
         padding: const EdgeInsets.all(40),
         child: Column(

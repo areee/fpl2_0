@@ -11,10 +11,20 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return about.AboutPage(
       values: {
-        'version': '2.0.0-alpha.1',
+        'version': '2.0.0-alpha.2',
         'year': DateTime.now().year.toString(),
       },
-      title: const Text('About'),
+      title: Text(
+        'About',
+        style: TextStyle(
+          background: Paint()
+            ..color = Theme.of(context).colorScheme.primary.withOpacity(0.5)
+            ..strokeWidth = 17
+            ..strokeJoin = StrokeJoin.round
+            ..strokeCap = StrokeCap.round
+            ..style = PaintingStyle.stroke,
+        ),
+      ),
       scaffoldBuilder: scaffold.customScaffoldBuilder,
       applicationLegalese: 'Copyright © Arttu Ylhävuori, {{ year }}',
       applicationDescription: const Text(

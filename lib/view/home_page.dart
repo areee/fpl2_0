@@ -46,7 +46,19 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: customAppBar(
-          context, const Text('Flutter Participants Lottery'), actions),
+          context,
+          Text(
+            'Flutter Participants Lottery',
+            style: TextStyle(
+              background: Paint()
+                ..color = Theme.of(context).colorScheme.primary.withOpacity(0.5)
+                ..strokeWidth = 17
+                ..strokeJoin = StrokeJoin.round
+                ..strokeCap = StrokeCap.round
+                ..style = PaintingStyle.stroke,
+            ),
+          ),
+          actions),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
