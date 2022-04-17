@@ -2,7 +2,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/runner.dart';
+import '../models/count_down_runner.dart';
 
 class CustomCircularCountDownTimer extends StatelessWidget {
   const CustomCircularCountDownTimer({Key? key}) : super(key: key);

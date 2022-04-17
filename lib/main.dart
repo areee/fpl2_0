@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fpl2_0/models/runner.dart';
+import 'package:fpl2_0/models/count_down_runner.dart';
 import 'package:provider/provider.dart';
 
 import 'fpl_themes.dart';
@@ -7,8 +7,12 @@ import 'routes.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => CountDownRunner(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CountDownRunner>(
+          create: (_) => CountDownRunner(),
+        ),
+      ],
       child: const MyApp(),
     ),
   );

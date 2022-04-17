@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fpl2_0/models/runner.dart';
+import 'package:fpl2_0/models/count_down_runner.dart';
 
 void main() {
   test('starting runner starts it', () {

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../components/custom_title_with_style.dart';
 import '../components/custom_bottom_app_bar.dart';
-import '../models/runner.dart';
+import '../models/count_down_runner.dart';
 import '../static.dart';
 import '../components/custom_circular_count_down_timer.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/runner.dart';
+import '../models/count_down_runner.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);
