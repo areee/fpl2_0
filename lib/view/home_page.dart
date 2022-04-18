@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fpl2_0/components/custom_app_bar.dart';
+import 'package:fpl2_0/models/counter_duration.dart';
 import 'package:provider/provider.dart';
 
 import '../components/custom_title_with_style.dart';
@@ -53,11 +54,21 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Padding(
+          children: [
+            const Padding(
               padding: EdgeInsets.only(bottom: 2.0),
               child: CustomCircularCountDownTimer(),
             ),
+            Consumer<CounterDuration>(builder: (context, counterDuration, _) {
+              return Text(
+                '${counterDuration.duration}',
+                style: const TextStyle(
+                  fontSize: 60,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              );
+            }),
           ],
         ),
       ),

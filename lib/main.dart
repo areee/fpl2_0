@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fpl2_0/models/count_down_runner.dart';
 import 'package:provider/provider.dart';
 
 import 'fpl_themes.dart';
+import 'models/count_down_runner.dart';
+import 'models/counter_duration.dart';
 import 'routes.dart';
 
 void main() {
@@ -11,6 +12,9 @@ void main() {
       providers: [
         ChangeNotifierProvider<CountDownRunner>(
           create: (_) => CountDownRunner(),
+        ),
+        ChangeNotifierProvider<CounterDuration>(
+          create: (_) => CounterDuration(),
         ),
       ],
       child: const MyApp(),

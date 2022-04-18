@@ -1,9 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/custom_app_bar.dart';
 import '../components/custom_title_with_style.dart';
+import '../models/counter_duration.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -28,9 +31,13 @@ class SettingsPage extends StatelessWidget {
                 border: OutlineInputBorder(),
                 hintText: 'Enter time in seconds',
               ),
-              onChanged: (text) {
+              onChanged: (duration) /*async*/ {
+                // final prefs = await SharedPreferences.getInstance();
+                // await prefs.setInt('counterDuration', int.parse(duration));
+                var counterDuration = context.read<CounterDuration>();
+                counterDuration.setDuration(int.parse(duration));
                 if (kDebugMode) {
-                  print('Output of the number field: $text');
+                  print('Output of the number field: $duration');
                 }
               },
             ),
