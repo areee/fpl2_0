@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'view/about_page.dart';
 import 'view/home_page.dart';
+import 'view/settings_page.dart';
 
-void main() => runApp(const GetMaterialApp(
-      home: Home(),
+void main() => runApp(GetMaterialApp(
+      initialRoute: '/',
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => const Home(),
+        ),
+        GetPage(
+          name: '/settings',
+          page: () => const Settings(),
+        ),
+        GetPage(
+          name: '/about',
+          page: () => const About(),
+        ),
+      ],
+      // home: Home(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Participants Lottery',
     ));

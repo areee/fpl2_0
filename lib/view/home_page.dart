@@ -3,11 +3,9 @@ import 'package:fpl2_0/components/custom_app_bar.dart';
 import 'package:fpl2_0/models/controller.dart';
 import 'package:get/get.dart';
 
-import 'about_page.dart';
 import 'custom_bottom_app_bar.dart';
 import '../static.dart';
 import 'custom_circular_count_down_timer.dart';
-import 'settings_page.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -21,10 +19,10 @@ class Home extends StatelessWidget {
         onSelected: (AppBarValues value) {
           switch (value) {
             case AppBarValues.settings:
-              Get.to(() => const Settings());
+              Get.toNamed('/settings');
               break;
             case AppBarValues.about:
-              Get.to(() => const About());
+              Get.toNamed('/about');
               break;
           }
         },
