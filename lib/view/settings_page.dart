@@ -12,9 +12,23 @@ class Settings extends StatelessWidget {
   @override
   Widget build(context) {
     final Controller c = Get.find();
-    final timerDurationController = TextEditingController();
-    timerDurationController.text = c.timerDuration.value.toString();
+    final timerDurationController = TextEditingController()
+      ..text = c.timerDuration.value.toString();
     // final box = GetStorage();
+
+    _timerDurationListener() {
+      final timerDurationText = timerDurationController.text;
+
+      if (kDebugMode) {
+        print('Output of the number field: $timerDurationText');
+      }
+
+      if (timerDurationText.isNotEmpty) {
+        c.setTimerDuration(int.parse(timerDurationText));
+      }
+    }
+
+    timerDurationController.addListener(_timerDurationListener);
 
     return Scaffold(
       appBar: customAppBar(context, const Text('Settings'), null),
@@ -49,14 +63,6 @@ class Settings extends StatelessWidget {
                   border: OutlineInputBorder(),
                   hintText: 'Enter time in seconds',
                 ),
-                onChanged: (value) {
-                  if (kDebugMode) {
-                    print('Output of the number field: $value');
-                  }
-                  if (value.isNotEmpty) {
-                    c.setTimerDuration(int.parse(value));
-                  }
-                },
               ),
             ),
           ],
