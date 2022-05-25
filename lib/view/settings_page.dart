@@ -12,8 +12,8 @@ class Settings extends StatelessWidget {
   @override
   Widget build(context) {
     final Controller c = Get.find();
-    final timerDurationController = TextEditingController()
-      ..text = c.timerDuration.value.toString();
+    final timerDurationController =
+        TextEditingController(text: c.timerDuration.value.toString());
     // final box = GetStorage();
 
     _timerDurationListener() {
