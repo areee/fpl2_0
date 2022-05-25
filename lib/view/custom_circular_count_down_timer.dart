@@ -1,4 +1,5 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,12 +15,12 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 2,
       duration: 90,
       initialDuration: 0,
-      fillColor: Colors.blueAccent[700]!,
+      fillColor: Theme.of(context).colorScheme.secondary,
       ringColor: Colors.grey[300]!,
       controller: context.watch<Runner>().countDownController,
       ringGradient: null,
       fillGradient: null,
-      backgroundColor: Colors.blue,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       backgroundGradient: null,
       strokeWidth: 20.0,
       strokeCap: StrokeCap.round,
@@ -33,8 +34,16 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       isReverseAnimation: true,
       isTimerTextShown: true,
       autoStart: false,
-      onStart: () {},
-      onComplete: () {},
+      onStart: () {
+        if (kDebugMode) {
+          print('Countdown Started');
+        }
+      },
+      onComplete: () {
+        if (kDebugMode) {
+          print('Countdown Completed');
+        }
+      },
     );
   }
 }
