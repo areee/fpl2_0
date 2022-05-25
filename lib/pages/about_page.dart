@@ -2,7 +2,7 @@ import 'package:about/about.dart' as about;
 
 import 'package:flutter/material.dart';
 
-import '../custom_scaffold_builder.dart' as scaffold;
+import '../components/custom_scaffold_builder.dart' as scaffold;
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);

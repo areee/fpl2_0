@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'fpl_themes.dart';
-import 'view/about_page.dart';
-import 'view/home_page.dart';
-import 'view/settings_page.dart';
+import 'pages/about_page.dart';
+import 'pages/home_page.dart';
+import 'pages/settings_page.dart';
 
 Future<void> main() async {
   await GetStorage.init();

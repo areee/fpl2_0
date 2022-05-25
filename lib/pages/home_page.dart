@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 import '../components/custom_app_bar.dart';
 import '../controllers/controller.dart';
-import 'custom_bottom_app_bar.dart';
+import '../components/custom_bottom_app_bar.dart';
 import '../static.dart';
-import 'custom_circular_count_down_timer.dart';
+import '../components/custom_circular_count_down_timer.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
