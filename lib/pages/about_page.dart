@@ -2,13 +2,13 @@ import 'package:about/about.dart' as about;
 
 import 'package:flutter/material.dart';
 
-import '../custom_scaffold_builder.dart' as scaffold;
+import '../components/custom_scaffold_builder.dart' as scaffold;
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+class About extends StatelessWidget {
+  const About({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return about.AboutPage(
       values: {
         'version': '2.0.0-alpha.1',

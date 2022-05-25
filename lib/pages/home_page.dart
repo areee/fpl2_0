@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:fpl2_0/components/custom_app_bar.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
-import 'custom_bottom_app_bar.dart';
-import '../models/runner.dart';
+import '../components/custom_app_bar.dart';
+import '../controllers/controller.dart';
+import '../components/custom_bottom_app_bar.dart';
 import '../static.dart';
-import 'custom_circular_count_down_timer.dart';
+import '../components/custom_circular_count_down_timer.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
+    final Controller c = Get.put(Controller());
+
     List<Widget> actions = [
       PopupMenuButton<AppBarValues>(
         onSelected: (AppBarValues value) {
           switch (value) {
             case AppBarValues.settings:
-              Navigator.pushNamed(context, '/settings');
+              Get.toNamed('/settings');
               break;
             case AppBarValues.about:
-              Navigator.pushNamed(context, '/about');
+              Get.toNamed('/about');
+              break;
           }
         },
         tooltip: 'More options',
@@ -58,24 +61,20 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Consumer<Runner>(
-          builder: (context, runner, child) {
-            return Icon(
-              runner.status == Status.running ? Icons.pause : Icons.play_arrow,
-            );
-          },
-        ),
-        onPressed: () {
-          var runner = context.read<Runner>();
-          runner.status == Status.running
-              ? runner.setPaused()
-              : runner.setRunning();
-        },
-        tooltip: context.watch<Runner>().status == Status.running
-            ? 'Pause'
-            : 'Start',
-      ),
+      floatingActionButton: Obx(() => FloatingActionButton(
+            onPressed: () {
+              c.timerStatus.value == TimerStatus.running
+                  ? c.setPaused()
+                  : c.setRunning();
+            },
+            tooltip:
+                c.timerStatus.value == TimerStatus.running ? 'Pause' : 'Start',
+            child: Icon(
+              c.timerStatus.value == TimerStatus.running
+                  ? Icons.pause
+                  : Icons.play_arrow,
+            ),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomAppBar(),
     );
