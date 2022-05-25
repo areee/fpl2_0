@@ -63,15 +63,20 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          c.status.value == Status.running ? c.setPaused() : c.setRunning();
-        },
-        tooltip: c.status.value == Status.running ? 'Pause' : 'Start',
-        child: Icon(
-          c.status.value == Status.running ? Icons.pause : Icons.play_arrow,
-        ),
-      ),
+      floatingActionButton: Obx(() => FloatingActionButton(
+            onPressed: () {
+              c.timerStatus.value == TimerStatus.running
+                  ? c.setPaused()
+                  : c.setRunning();
+            },
+            tooltip:
+                c.timerStatus.value == TimerStatus.running ? 'Pause' : 'Start',
+            child: Icon(
+              c.timerStatus.value == TimerStatus.running
+                  ? Icons.pause
+                  : Icons.play_arrow,
+            ),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomAppBar(),
     );

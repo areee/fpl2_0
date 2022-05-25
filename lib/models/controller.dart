@@ -1,28 +1,38 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../static.dart';
 
 class Controller extends GetxController {
-  var status = Status.stopped.obs;
+  var timerStatus = TimerStatus.stopped.obs;
   var countDownController = CountDownController().obs;
 
   setRunning() {
-    if (status.value == Status.stopped) {
+    if (kDebugMode) {
+      print('setRunning');
+    }
+    if (timerStatus.value == TimerStatus.stopped) {
       countDownController.value.restart(duration: 90);
     } else {
       countDownController.value.resume();
     }
-    status.value = Status.running;
+    timerStatus.value = TimerStatus.running;
   }
 
   setPaused() {
-    status.value = Status.paused;
+    if (kDebugMode) {
+      print('setPaused');
+    }
+    timerStatus.value = TimerStatus.paused;
     countDownController.value.pause();
   }
 
   setStopped() {
-    status.value = Status.stopped;
+    if (kDebugMode) {
+      print('setStopped');
+    }
+    timerStatus.value = TimerStatus.stopped;
     countDownController.value.restart(duration: 0);
     countDownController.value.pause();
   }

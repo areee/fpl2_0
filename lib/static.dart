@@ -1,6 +1,6 @@
 enum AppBarValues { settings, about }
 
-enum Status {
+enum TimerStatus {
   running,
   paused,
   stopped,

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,11 @@ class CustomBottomAppBar extends StatelessWidget {
             IconButton(
               tooltip: 'Randomize',
               icon: const Icon(Icons.shuffle),
-              onPressed: () {},
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Randomize clicked');
+                }
+              },
             ),
             const Spacer(
               flex: 1,
