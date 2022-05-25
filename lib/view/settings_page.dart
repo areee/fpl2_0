@@ -14,7 +14,6 @@ class Settings extends StatelessWidget {
     final Controller c = Get.find();
     final timerDurationController =
         TextEditingController(text: c.timerDuration.value.toString());
-    // final box = GetStorage();
 
     _timerDurationListener() {
       final timerDurationText = timerDurationController.text;
@@ -37,19 +36,6 @@ class Settings extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(
-                onPressed: () {
-                  if (kDebugMode) {
-                    print('Change theme button clicked.');
-                  }
-                  // if (Get.isDarkMode) {
-                  //   Get.changeTheme(ThemeData.light());
-                  // } else {
-                  //   Get.changeTheme(ThemeData.dark());
-                  // }
-                  // box.write('theme', value);
-                },
-                child: const Text('Change theme')),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(

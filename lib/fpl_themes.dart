@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'constants.dart';
+import 'static.dart';
 
 ThemeData lightFplTheme(context) {
   return DateTime.now().isAfter(firstSummer2022Day())
@@ -47,7 +47,7 @@ ThemeData _lightSummer2022Theme(context) {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.amber, brightness: Brightness.light)
-        .copyWith(secondary: Colors.indigoAccent[700]),
+        .copyWith(secondary: Colors.orange[700]),
     textTheme: GoogleFonts.fredokaOneTextTheme(
       Theme.of(context).textTheme,
     ),
@@ -59,7 +59,7 @@ ThemeData _darkSummer2022Theme(context) {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.amber, brightness: Brightness.dark)
-        .copyWith(secondary: Colors.indigoAccent[700]),
+        .copyWith(secondary: Colors.orange[700]),
     textTheme: GoogleFonts.fredokaOneTextTheme(
       Theme.of(context).textTheme.apply(
             bodyColor: Colors.white,

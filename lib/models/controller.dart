@@ -8,7 +8,6 @@ import '../static.dart';
 class Controller extends GetxController {
   final timerStatus = TimerStatus.stopped.obs;
   final countDownController = CountDownController().obs;
-  // ThemeData themeData;
   final timerDuration = 90.obs;
 
   final box = GetStorage();
@@ -24,10 +23,6 @@ class Controller extends GetxController {
       timerDuration.value = box.read('timerDuration');
     }
   }
-
-  // void _restoreTheme() {
-  //   // bool isDark = box.rea
-  // }
 
   setTimerDuration(int value) {
     setStopped();
