@@ -1,6 +1,9 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:emoji_alert/arrays.dart';
+import 'package:emoji_alert/emoji_alert.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:fpl2_0/static.dart';
 import 'package:get/get.dart';
 
 import '../models/controller.dart';
@@ -44,6 +47,25 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       onComplete: () {
         if (kDebugMode) {
           print('Countdown Completed');
+        }
+
+        if (c.timerStatus.value == TimerStatus.running) {
+          c.timerStatus.value = TimerStatus.stopped;
+
+          EmojiAlert(
+              emojiType: EMOJI_TYPE.WINK,
+              background: Theme.of(context).colorScheme.secondary,
+              enableMainButton: true,
+              mainButtonText: const Text('Close'),
+              mainButtonColor: Theme.of(context).colorScheme.primary,
+              onMainButtonPressed: () {
+                Navigator.pop(context);
+              },
+              description: Column(
+                children: const [
+                  Text('Time\'s up', style: TextStyle(color: Colors.white)),
+                ],
+              )).displayAlert(context);
         }
       },
     );
