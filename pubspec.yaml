@@ -12,10 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  provider: ^6.0.3
   about: ^2.1.1
   circular_countdown_timer: ^0.2.1
   google_fonts: ^3.0.1
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

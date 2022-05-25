@@ -3,20 +3,20 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
 
-ThemeData lightFplTheme(BuildContext context) {
+ThemeData lightFplTheme(context) {
   return DateTime.now().isAfter(firstSummer2022Day())
       ? _lightSummer2022Theme(context)
       : _lightSpring2022Theme(context);
 }
 
-ThemeData darkFplTheme(BuildContext context) {
+ThemeData darkFplTheme(context) {
   return DateTime.now().isAfter(firstSummer2022Day())
       ? _darkSummer2022Theme(context)
       : _darkSpring2022Theme(context);
 }
 
 /// Spring 2022 theme for light mode.
-ThemeData _lightSpring2022Theme(BuildContext context) {
+ThemeData _lightSpring2022Theme(context) {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.green, brightness: Brightness.light)
@@ -28,7 +28,7 @@ ThemeData _lightSpring2022Theme(BuildContext context) {
 }
 
 /// Spring 2022 theme for dark mode.
-ThemeData _darkSpring2022Theme(BuildContext context) {
+ThemeData _darkSpring2022Theme(context) {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.green, brightness: Brightness.dark)
@@ -43,7 +43,7 @@ ThemeData _darkSpring2022Theme(BuildContext context) {
 }
 
 /// Summer 2022 theme for light mode.
-ThemeData _lightSummer2022Theme(BuildContext context) {
+ThemeData _lightSummer2022Theme(context) {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.amber, brightness: Brightness.light)
@@ -55,7 +55,7 @@ ThemeData _lightSummer2022Theme(BuildContext context) {
 }
 
 /// Summer 2022 theme for dark mode.
-ThemeData _darkSummer2022Theme(BuildContext context) {
+ThemeData _darkSummer2022Theme(context) {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.amber, brightness: Brightness.dark)

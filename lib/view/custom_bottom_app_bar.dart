@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
-import '../models/runner.dart';
+import '../models/controller.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Controller c = Get.put(Controller());
+
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
       color: Theme.of(context).colorScheme.primary,
@@ -30,8 +32,7 @@ class CustomBottomAppBar extends StatelessWidget {
               tooltip: 'Stop',
               icon: const Icon(Icons.stop),
               onPressed: () {
-                var runner = context.read<Runner>();
-                runner.setStopped();
+                c.setStopped();
               },
             ),
             const Spacer(

@@ -1,15 +1,17 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
-import '../models/runner.dart';
+import '../models/controller.dart';
 
 class CustomCircularCountDownTimer extends StatelessWidget {
   const CustomCircularCountDownTimer({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
+    final Controller c = Get.put(Controller());
+
     return CircularCountDownTimer(
       width: MediaQuery.of(context).size.width / 2,
       height: MediaQuery.of(context).size.height / 2,
@@ -17,7 +19,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       initialDuration: 0,
       fillColor: Theme.of(context).colorScheme.secondary,
       ringColor: Colors.grey[300]!,
-      controller: context.watch<Runner>().countDownController,
+      controller: c.countDownController.value,
       ringGradient: null,
       fillGradient: null,
       backgroundColor: Theme.of(context).colorScheme.primary,

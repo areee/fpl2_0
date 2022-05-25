@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:fpl2_0/components/custom_app_bar.dart';
-import 'package:provider/provider.dart';
+import 'package:fpl2_0/models/controller.dart';
+import 'package:get/get.dart';
 
+import 'about_page.dart';
 import 'custom_bottom_app_bar.dart';
-import '../models/runner.dart';
 import '../static.dart';
 import 'custom_circular_count_down_timer.dart';
+import 'settings_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
+    final Controller c = Get.put(Controller());
+
     List<Widget> actions = [
       PopupMenuButton<AppBarValues>(
         onSelected: (AppBarValues value) {
           switch (value) {
             case AppBarValues.settings:
-              Navigator.pushNamed(context, '/settings');
+              Get.to(() => const Settings());
               break;
             case AppBarValues.about:
-              Navigator.pushNamed(context, '/about');
+              Get.to(() => const About());
+              break;
           }
         },
         tooltip: 'More options',
@@ -59,22 +64,13 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Consumer<Runner>(
-          builder: (context, runner, child) {
-            return Icon(
-              runner.status == Status.running ? Icons.pause : Icons.play_arrow,
-            );
-          },
-        ),
         onPressed: () {
-          var runner = context.read<Runner>();
-          runner.status == Status.running
-              ? runner.setPaused()
-              : runner.setRunning();
+          c.status.value == Status.running ? c.setPaused() : c.setRunning();
         },
-        tooltip: context.watch<Runner>().status == Status.running
-            ? 'Pause'
-            : 'Start',
+        tooltip: c.status.value == Status.running ? 'Pause' : 'Start',
+        child: Icon(
+          c.status.value == Status.running ? Icons.pause : Icons.play_arrow,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomAppBar(),

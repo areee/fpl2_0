@@ -4,11 +4,11 @@ import 'package:flutter/services.dart';
 
 import '../components/custom_app_bar.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+class Settings extends StatelessWidget {
+  const Settings({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Scaffold(
       appBar: customAppBar(context, const Text('Settings'), null),
       body: Container(
