@@ -59,7 +59,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
               mainButtonText: const Text('Close'),
               mainButtonColor: Theme.of(context).colorScheme.primary,
               onMainButtonPressed: () {
-                Navigator.pop(context);
+                Get.back();
               },
               description: Column(
                 children: const [
