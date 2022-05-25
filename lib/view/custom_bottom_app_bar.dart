@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../models/controller.dart';
+import '../controllers/controller.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);

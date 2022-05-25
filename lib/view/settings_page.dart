@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../components/custom_app_bar.dart';
-import '../models/controller.dart';
+import '../controllers/controller.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);

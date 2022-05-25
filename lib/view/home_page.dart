@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fpl2_0/components/custom_app_bar.dart';
-import 'package:fpl2_0/models/controller.dart';
 import 'package:get/get.dart';
 
+import '../components/custom_app_bar.dart';
+import '../controllers/controller.dart';
 import 'custom_bottom_app_bar.dart';
 import '../static.dart';
 import 'custom_circular_count_down_timer.dart';

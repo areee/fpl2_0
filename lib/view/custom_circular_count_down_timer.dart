@@ -3,10 +3,10 @@ import 'package:emoji_alert/arrays.dart';
 import 'package:emoji_alert/emoji_alert.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:fpl2_0/static.dart';
 import 'package:get/get.dart';
 
-import '../models/controller.dart';
+import '../controllers/controller.dart';
+import '../static.dart';
 
 class CustomCircularCountDownTimer extends StatelessWidget {
   const CustomCircularCountDownTimer({Key? key}) : super(key: key);
