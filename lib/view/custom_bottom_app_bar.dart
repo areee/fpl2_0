@@ -8,7 +8,7 @@ class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     final Controller c = Get.find();
 
     return BottomAppBar(

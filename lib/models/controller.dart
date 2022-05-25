@@ -1,19 +1,46 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../static.dart';
 
 class Controller extends GetxController {
-  var timerStatus = TimerStatus.stopped.obs;
-  var countDownController = CountDownController().obs;
+  final timerStatus = TimerStatus.stopped.obs;
+  final countDownController = CountDownController().obs;
+  // ThemeData themeData;
+  final timerDuration = 90.obs;
+
+  final box = GetStorage();
+
+  @override
+  onInit() {
+    super.onInit();
+    _initializeTimerDuration();
+  }
+
+  _initializeTimerDuration() {
+    if (box.read('timerDuration') != null) {
+      timerDuration.value = box.read('timerDuration');
+    }
+  }
+
+  // void _restoreTheme() {
+  //   // bool isDark = box.rea
+  // }
+
+  setTimerDuration(int value) {
+    setStopped();
+    timerDuration.value = value;
+    box.write('timerDuration', value);
+  }
 
   setRunning() {
     if (kDebugMode) {
       print('setRunning');
     }
     if (timerStatus.value == TimerStatus.stopped) {
-      countDownController.value.restart(duration: 90);
+      countDownController.value.restart(duration: timerDuration.value);
     } else {
       countDownController.value.resume();
     }

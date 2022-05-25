@@ -18,7 +18,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
     return CircularCountDownTimer(
       width: MediaQuery.of(context).size.width / 2,
       height: MediaQuery.of(context).size.height / 2,
-      duration: 90,
+      duration: c.timerDuration.value,
       initialDuration: 0,
       fillColor: Theme.of(context).colorScheme.secondary,
       ringColor: Colors.grey[300]!,
