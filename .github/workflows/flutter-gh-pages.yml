@@ -1,4 +1,4 @@
-ame: Deploy Flutter web app to Github Pages
+name: Deploy Flutter web app to Github Pages
 
 on:
   push:
