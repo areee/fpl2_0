@@ -21,7 +21,6 @@ void main() => runApp(GetMaterialApp(
           page: () => const About(),
         ),
       ],
-      // home: Home(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Participants Lottery',
     ));

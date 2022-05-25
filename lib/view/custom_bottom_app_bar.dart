@@ -9,7 +9,7 @@ class CustomBottomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Controller c = Get.put(Controller());
+    final Controller c = Get.find();
 
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),

@@ -13,7 +13,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final Controller c = Get.put(Controller());
+    final Controller c = Get.find();
 
     return CircularCountDownTimer(
       width: MediaQuery.of(context).size.width / 2,
