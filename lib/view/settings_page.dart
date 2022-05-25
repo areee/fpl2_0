@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../components/custom_app_bar.dart';
 import '../models/controller.dart';
@@ -13,6 +12,8 @@ class Settings extends StatelessWidget {
   @override
   Widget build(context) {
     final Controller c = Get.find();
+    final timerDurationController = TextEditingController();
+    timerDurationController.text = c.timerDuration.value.toString();
     // final box = GetStorage();
 
     return Scaffold(
@@ -38,6 +39,7 @@ class Settings extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: timerDurationController,
                 keyboardType: TextInputType.number,
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly,
