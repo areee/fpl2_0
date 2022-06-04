@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:random_avatar/random_avatar.dart';
 
 import '../components/custom_app_bar.dart';
 import '../controllers/controller.dart';
@@ -53,10 +54,17 @@ class Home extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Padding(
-              padding: EdgeInsets.only(bottom: 2.0),
-              child: CustomCircularCountDownTimer(),
+          children: [
+            const CustomCircularCountDownTimer(),
+            SizedBox(
+              height: 70,
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: testParticipantNamesInList
+                    .map((name) => randomAvatar(name, height: 50, width: 50))
+                    .toList(),
+              ),
             ),
           ],
         ),
