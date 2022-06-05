@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fpl2_0/components/avatar_widget.dart';
 import 'package:get/get.dart';
 
 import '../components/custom_app_bar.dart';
@@ -46,19 +47,31 @@ class Home extends StatelessWidget {
         ],
       ),
     ];
+    var axisCount = (MediaQuery.of(context).size.width / 140).round();
 
     return Scaffold(
       appBar: customAppBar(
           context, const Text('Flutter Participants Lottery'), actions),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Padding(
-              padding: EdgeInsets.only(bottom: 2.0),
-              child: CustomCircularCountDownTimer(),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              const CustomCircularCountDownTimer(),
+              const SizedBox(height: 20),
+              GridView.count(
+                // mainAxisSpacing: 20,
+                // crossAxisSpacing: 20,
+                shrinkWrap: true,
+                crossAxisCount: axisCount,
+                children: testParticipantNamesInList
+                    .map((name) => AvatarWidget(name: name))
+                    .toList(),
+              ),
+              // const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
       floatingActionButton: Obx(() => FloatingActionButton(
