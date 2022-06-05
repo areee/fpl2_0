@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fpl2_0/components/avatar_widget.dart';
 import 'package:get/get.dart';
-import 'package:random_avatar/random_avatar.dart';
 
 import '../components/custom_app_bar.dart';
 import '../controllers/controller.dart';
@@ -60,15 +60,15 @@ class Home extends StatelessWidget {
               const CustomCircularCountDownTimer(),
               const SizedBox(height: 20),
               GridView.count(
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+                // mainAxisSpacing: 20,
+                // crossAxisSpacing: 20,
                 shrinkWrap: true,
                 crossAxisCount: 10,
                 children: testParticipantNamesInList
-                    .map((name) => randomAvatar(name, width: 10, height: 10))
+                    .map((name) => AvatarWidget(name: name))
                     .toList(),
               ),
-              const SizedBox(height: 20),
+              // const SizedBox(height: 20),
             ],
           ),
         ),
