@@ -47,6 +47,7 @@ class Home extends StatelessWidget {
         ],
       ),
     ];
+    var axisCount = (MediaQuery.of(context).size.width / 140).round();
 
     return Scaffold(
       appBar: customAppBar(
@@ -63,7 +64,7 @@ class Home extends StatelessWidget {
                 // mainAxisSpacing: 20,
                 // crossAxisSpacing: 20,
                 shrinkWrap: true,
-                crossAxisCount: 10,
+                crossAxisCount: axisCount,
                 children: testParticipantNamesInList
                     .map((name) => AvatarWidget(name: name))
                     .toList(),

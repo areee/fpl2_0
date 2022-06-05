@@ -9,9 +9,13 @@ class AvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var sizeOfAvatar = MediaQuery.of(context).size.width / 30;
+
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        randomAvatar('$name $_dateTimeNow', width: 50, height: 50),
+        randomAvatar('$name $_dateTimeNow',
+            width: sizeOfAvatar, height: sizeOfAvatar),
         Text(name),
       ],
     );
