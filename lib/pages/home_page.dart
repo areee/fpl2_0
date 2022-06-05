@@ -51,22 +51,26 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(
           context, const Text('Flutter Participants Lottery'), actions),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CustomCircularCountDownTimer(),
-            SizedBox(
-              height: 70,
-              child: ListView(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              const CustomCircularCountDownTimer(),
+              const SizedBox(height: 20),
+              GridView.count(
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
                 shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
+                crossAxisCount: 10,
                 children: testParticipantNamesInList
-                    .map((name) => randomAvatar(name, height: 50, width: 50))
+                    .map((name) => randomAvatar(name, width: 10, height: 10))
                     .toList(),
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
       floatingActionButton: Obx(() => FloatingActionButton(
