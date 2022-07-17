@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   about: ^2.1.1
-  circular_countdown_timer: ^0.2.1
+  circular_countdown_timer: ^0.2.2
   google_fonts: ^3.0.1
   get: ^4.6.5
   emoji_alert: ^1.1.0
@@ -23,7 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
