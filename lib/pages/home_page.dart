@@ -3,6 +3,7 @@ import 'package:fpl2_0/components/avatar_widget.dart';
 import 'package:get/get.dart';
 
 import '../components/custom_app_bar.dart';
+import '../components/home_app_bar_actions.dart' as home_app_bar_actions;
 import '../controllers/controller.dart';
 import '../components/custom_bottom_app_bar.dart';
 import '../static.dart';
@@ -15,43 +16,11 @@ class Home extends StatelessWidget {
   Widget build(context) {
     final Controller c = Get.put(Controller());
 
-    List<Widget> actions = [
-      PopupMenuButton<AppBarValues>(
-        onSelected: (AppBarValues value) {
-          switch (value) {
-            case AppBarValues.settings:
-              Get.toNamed('/settings');
-              break;
-            case AppBarValues.about:
-              Get.toNamed('/about');
-              break;
-          }
-        },
-        tooltip: 'More options',
-        icon: const Icon(Icons.more_vert),
-        itemBuilder: (BuildContext context) => <PopupMenuEntry<AppBarValues>>[
-          const PopupMenuItem<AppBarValues>(
-            value: AppBarValues.settings,
-            child: ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-          ),
-          const PopupMenuItem<AppBarValues>(
-            value: AppBarValues.about,
-            child: ListTile(
-              leading: Icon(Icons.info),
-              title: Text('About'),
-            ),
-          ),
-        ],
-      ),
-    ];
     var axisCount = (MediaQuery.of(context).size.width / 140).round();
 
     return Scaffold(
-      appBar: customAppBar(
-          context, const Text('Flutter Participants Lottery'), actions),
+      appBar: customAppBar(context, const Text('Flutter Participants Lottery'),
+          home_app_bar_actions.actions),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
