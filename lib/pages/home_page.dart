@@ -21,27 +21,14 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, const Text('Flutter Participants Lottery'),
           home_app_bar_actions.actions),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 20),
-              const CustomCircularCountDownTimer(),
-              const SizedBox(height: 20),
-              GridView.count(
-                // mainAxisSpacing: 20,
-                // crossAxisSpacing: 20,
-                shrinkWrap: true,
-                crossAxisCount: axisCount,
-                children: testParticipantNamesInList
-                    .map((name) => AvatarWidget(name: name))
-                    .toList(),
-              ),
-              // const SizedBox(height: 20),
-            ],
-          ),
-        ),
+      body: LayoutBuilder(
+        builder: (context, BoxConstraints constraints) {
+          if (constraints.maxWidth > 600) {
+            return _buildWiderBody();
+          } else {
+            return _buildMobileBody(axisCount);
+          }
+        },
       ),
       floatingActionButton: Obx(() => FloatingActionButton(
             onPressed: () {
@@ -59,6 +46,52 @@ class Home extends StatelessWidget {
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomAppBar(),
+    );
+  }
+
+  Widget _buildMobileBody(int axisCount) {
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 20),
+            const CustomCircularCountDownTimer(),
+            const SizedBox(height: 20),
+            GridView.count(
+              // mainAxisSpacing: 20,
+              // crossAxisSpacing: 20,
+              shrinkWrap: true,
+              crossAxisCount: axisCount,
+              children: testParticipantNamesInList
+                  .map((name) => AvatarWidget(name: name))
+                  .toList(),
+            ),
+            // const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWiderBody() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const CustomCircularCountDownTimer(),
+          SizedBox(
+            height: 70,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              children: testParticipantNamesInList
+                  .map((name) => AvatarWidget(name: name))
+                  .toList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
