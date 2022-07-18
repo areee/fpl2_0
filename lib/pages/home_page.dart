@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, BoxConstraints constraints) {
           if (constraints.maxWidth > 600) {
-            return _buildWiderBody();
+            return _buildWiderBody2();
           } else {
             return _buildMobileBody(axisCount);
           }
@@ -88,6 +88,29 @@ class Home extends StatelessWidget {
               children: testParticipantNamesInList
                   .map((name) => AvatarWidget(name: name))
                   .toList(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWiderBody2() {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const CustomCircularCountDownTimer(),
+          Wrap(
+            direction: Axis.vertical,
+            children: List.generate(
+              testParticipantNamesInList.length,
+              (index) => Container(
+                margin: const EdgeInsets.all(10),
+                color: Colors.green,
+                height: 100,
+                width: 100,
+              ),
             ),
           ),
         ],
