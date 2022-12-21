@@ -6,14 +6,14 @@ publish_to: 'none'
 version: 2.0.0+1
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: '>=2.18.6 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
   about: ^2.1.1
-  circular_countdown_timer: ^0.2.2
+  circular_countdown_timer: ^0.2.3
   google_fonts: ^3.0.1
   get: ^4.6.5
   emoji_alert: ^1.1.0
