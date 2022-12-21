@@ -30,28 +30,41 @@ class Settings extends StatelessWidget {
     timerDurationController.addListener(_timerDurationListener);
 
     return Scaffold(
-      appBar: customAppBar(context, const Text('Settings'), null),
-      body: Container(
-        padding: const EdgeInsets.all(40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: timerDurationController,
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                decoration: const InputDecoration(
-                  labelText: 'Counter duration',
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter time in seconds',
+      appBar: customAppBar(
+          context,
+          Text(
+            'Settings',
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          null),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 300,
+                  height: 50,
+                  child: TextField(
+                    controller: timerDurationController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    style: Theme.of(context).textTheme.bodyText1,
+                    decoration: const InputDecoration(
+                      labelText: 'Counter duration',
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter time in seconds',
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -14,7 +14,10 @@ class About extends StatelessWidget {
         'version': '2.0.0-alpha.1',
         'year': DateTime.now().year.toString(),
       },
-      title: const Text('About'),
+      title: Text(
+        'About',
+        style: Theme.of(context).textTheme.headline4,
+      ),
       scaffoldBuilder: scaffold.customScaffoldBuilder,
       applicationLegalese: 'Copyright © Arttu Ylhävuori, {{ year }}',
       applicationDescription: const Text(
