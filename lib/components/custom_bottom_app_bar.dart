@@ -12,6 +12,7 @@ class CustomBottomAppBar extends StatelessWidget {
     final Controller c = Get.find();
 
     return BottomAppBar(
+      notchMargin: 8,
       shape: const CircularNotchedRectangle(),
       color: Theme.of(context).colorScheme.primary,
       child: IconTheme(

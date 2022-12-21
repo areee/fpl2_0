@@ -29,11 +29,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       backgroundGradient: null,
       strokeWidth: 20.0,
       strokeCap: StrokeCap.round,
-      textStyle: const TextStyle(
-        fontSize: 33.0,
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-      ),
+      textStyle: Theme.of(context).textTheme.headline3,
       textFormat: CountdownTextFormat.MM_SS,
       isReverse: true,
       isReverseAnimation: true,

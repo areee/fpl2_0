@@ -19,15 +19,20 @@ class Home extends StatelessWidget {
     var axisCount = (MediaQuery.of(context).size.width / 140).round();
 
     return Scaffold(
-      appBar: customAppBar(context, const Text('Flutter Participants Lottery'),
+      appBar: customAppBar(
+          context,
+          Text(
+            'Flutter Participants Lottery',
+            style: Theme.of(context).textTheme.headline4,
+          ),
           home_app_bar_actions.actions),
       body: LayoutBuilder(
         builder: (context, BoxConstraints constraints) {
-          if (constraints.maxWidth > 600) {
-            return _buildWiderBody();
-          } else {
-            return _buildMobileBody(axisCount);
-          }
+          // if (constraints.maxWidth > 600) {
+          //   return _buildWiderBody();
+          // } else {
+          return _buildMobileBody(axisCount);
+          // }
         },
       ),
       floatingActionButton: Obx(() => FloatingActionButton(
@@ -81,7 +86,7 @@ class Home extends StatelessWidget {
         children: <Widget>[
           const CustomCircularCountDownTimer(),
           SizedBox(
-            height: 70,
+            height: 77,
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
