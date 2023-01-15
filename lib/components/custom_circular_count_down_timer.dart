@@ -50,16 +50,22 @@ class CustomCircularCountDownTimer extends StatelessWidget {
 
           EmojiAlert(
               emojiType: EMOJI_TYPE.WINK,
-              background: Theme.of(context).colorScheme.secondary,
+              background: Theme.of(context).colorScheme.background,
               enableMainButton: true,
-              mainButtonText: const Text('Close'),
+              mainButtonText: Text(
+                'Close',
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               mainButtonColor: Theme.of(context).colorScheme.primary,
               onMainButtonPressed: () {
                 Get.back();
               },
               description: Column(
-                children: const [
-                  Text('Time\'s up', style: TextStyle(color: Colors.white)),
+                children: [
+                  Text(
+                    'Time\'s up',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
                 ],
               )).displayAlert(context);
         }
