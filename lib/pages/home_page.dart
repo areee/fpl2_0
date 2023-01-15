@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fpl2_0/components/avatar_widget.dart';
 import 'package:get/get.dart';
 
+import '../components/app_bar_text.dart';
 import '../components/custom_app_bar.dart';
 import '../components/home_app_bar_actions.dart' as home_app_bar_actions;
 import '../controllers/controller.dart';
@@ -22,19 +23,20 @@ class Home extends StatelessWidget {
       appBar: customAppBar(
           context,
           Text(
-            'Flutter Participants Lottery',
+            getAppBarText(),
             style: Theme.of(context).textTheme.headline4,
           ),
           home_app_bar_actions.actions),
-      body: LayoutBuilder(
-        builder: (context, BoxConstraints constraints) {
-          // if (constraints.maxWidth > 600) {
-          //   return _buildWiderBody();
-          // } else {
-          return _buildMobileBody(axisCount);
-          // }
-        },
-      ),
+      body: _buildMobileBody(axisCount),
+      // body: LayoutBuilder(
+      //   builder: (context, BoxConstraints constraints) {
+      //     // if (constraints.maxWidth > 600) {
+      //     //   return _buildWiderBody();
+      //     // } else {
+      //     return _buildMobileBody(axisCount);
+      //     // }
+      //   },
+      // ),
       floatingActionButton: Obx(() => FloatingActionButton(
             onPressed: () {
               c.timerStatus.value == TimerStatus.running
@@ -79,24 +81,24 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget _buildWiderBody() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const CustomCircularCountDownTimer(),
-          SizedBox(
-            height: 77,
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              children: testParticipantNamesInList
-                  .map((name) => AvatarWidget(name: name))
-                  .toList(),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildWiderBody() {
+  //   return Center(
+  //     child: Column(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: <Widget>[
+  //         const CustomCircularCountDownTimer(),
+  //         SizedBox(
+  //           height: 77,
+  //           child: ListView(
+  //             shrinkWrap: true,
+  //             scrollDirection: Axis.horizontal,
+  //             children: testParticipantNamesInList
+  //                 .map((name) => AvatarWidget(name: name))
+  //                 .toList(),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
