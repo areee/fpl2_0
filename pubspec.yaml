@@ -18,7 +18,7 @@ dependencies:
   get: ^4.6.5
   emoji_alert: ^1.1.0
   get_storage: ^2.0.3
-  random_avatar: ^0.0.7
+  random_avatar: ^0.0.8
 
 dev_dependencies:
   flutter_test:
