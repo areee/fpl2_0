@@ -29,7 +29,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
       backgroundGradient: null,
       strokeWidth: 20.0,
       strokeCap: StrokeCap.round,
-      textStyle: Theme.of(context).textTheme.headline3,
+      textStyle: Theme.of(context).textTheme.displaySmall,
       textFormat: CountdownTextFormat.MM_SS,
       isReverse: true,
       isReverseAnimation: true,
@@ -54,7 +54,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
               enableMainButton: true,
               mainButtonText: Text(
                 'Close',
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               mainButtonColor: Theme.of(context).colorScheme.primary,
               onMainButtonPressed: () {
@@ -64,7 +64,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
                 children: [
                   Text(
                     'Time\'s up',
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ],
               )).displayAlert(context);

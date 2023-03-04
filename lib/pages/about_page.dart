@@ -16,7 +16,7 @@ class About extends StatelessWidget {
       },
       title: Text(
         'About',
-        style: Theme.of(context).textTheme.headline4,
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       scaffoldBuilder: scaffold.customScaffoldBuilder,
       applicationLegalese: 'Copyright © Arttu Ylhävuori, {{ year }}',
