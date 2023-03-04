@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
           context,
           Text(
             getAppBarText(),
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           home_app_bar_actions.actions),
       body: _buildMobileBody(axisCount),

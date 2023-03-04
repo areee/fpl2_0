@@ -15,7 +15,7 @@ class Settings extends StatelessWidget {
     final timerDurationController =
         TextEditingController(text: c.timerDuration.value.toString());
 
-    _timerDurationListener() {
+    timerDurationListener() {
       final timerDurationText = timerDurationController.text;
 
       if (kDebugMode) {
@@ -27,14 +27,14 @@ class Settings extends StatelessWidget {
       }
     }
 
-    timerDurationController.addListener(_timerDurationListener);
+    timerDurationController.addListener(timerDurationListener);
 
     return Scaffold(
       appBar: customAppBar(
           context,
           Text(
             'Settings',
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           null),
       body: Center(
@@ -54,7 +54,7 @@ class Settings extends StatelessWidget {
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
                     ],
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                     decoration: const InputDecoration(
                       labelText: 'Counter duration',
                       border: OutlineInputBorder(),
