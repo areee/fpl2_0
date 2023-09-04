@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^1.0.6
   about: ^2.1.3
   circular_countdown_timer: ^0.2.3
   google_fonts: ^4.0.4
